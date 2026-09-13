@@ -4,10 +4,8 @@ description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependenci
 runs:
   using: "composite"
   steps:
-    - name: Setup Node.js ⚙️
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
+    - name: Install PNPM & Node
+      uses: pnpm/setup@v1
 
     - name: Cache dependencies ⚡
       id: cache_dependencies
@@ -19,4 +17,4 @@ runs:
     - name: Install dependencies 🔧
       shell: bash
       if: steps.cache_dependencies.outputs.cache-hit != 'true'
-      run: npm ci
+      run: pnpm ci
