@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-big-shoulders);
+}
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-brand-blue: #0035e8;
+  --color-brand-red: #e9004b;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@layer base {
+  a {
+    color: var(--color-brand-blue);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+  }
+
+  a:hover {
+    color: var(--color-brand-red);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+  }
+}
